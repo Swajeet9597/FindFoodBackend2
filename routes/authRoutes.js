@@ -48,4 +48,11 @@ router.get("/getUser",getUser)
 router.get("/messFormRendering",messFormAccessMiddleware,messFormRendering)
 router.post("/logout",logoutUser)
 
+router.get("/test",(req,res)=>{
+    console.log("testing....");
+    res.json({
+        status:true
+    })
+})
+
 module.exports = router;    
