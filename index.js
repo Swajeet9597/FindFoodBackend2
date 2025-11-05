@@ -1,59 +1,32 @@
 require('dotenv').config();
-const express = require("express");
-const app = express();
+const express = require("express")
+const app = express()
 const dbConnect = require("./DB/db");
 const router = require('./routes/authRoutes');
-const messDataRoutes = require('./routes/messFormRoutes');
-const customerRoute = require("./routes/customerRoutes");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
+const messDataRoutes = require('./routes/messFormRoutes')
+const customerRoute = require("./routes/customerRoutes")
+const cors = require("cors")
+const cookieParser = require("cookie-parser")
 
-// ✅ Allowed origins (Angular, React, Vite)
-const allowedOrigins = [
-  "http://localhost:4200",  // Angular
-  "http://localhost:3000",  // React
-  "http://localhost:5173",  // Vite / other dev tool
-  // "https://find-food-frontend.vercel.app", // uncomment if frontend deployed
-];
+const corsOption = {
+    origin: ["http://localhost:4200"]
+    methods:"POST,GET,PATCH,DELETE,HEAD",
+    credentials: true,
+}
 
-// ✅ CORS setup (dynamic origin check)
-const corsOptions = {
-  origin: function (origin, callback) {
-    // allow requests without origin (e.g. Postman)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: "GET,POST,PATCH,DELETE,OPTIONS",
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // handle preflight requests
-
-// ✅ Middlewares
+app.use(cors(corsOption));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.text());
 
-// ✅ Routes
-app.use("/api/user/", router);
-app.use("/api/user/", messDataRoutes);
-app.use("/api/user/", customerRoute);
+app.use("/api/user/",router)
+app.use("/api/user/",messDataRoutes)
+app.use("/api/user/",customerRoute)
 
-// ✅ Error handler (for debugging)
-app.use((err, req, res, next) => {
-  console.error("❌ Server Error:", err.message);
-  res.status(500).json({ message: "Internal Server Error" });
-});
+app.listen(process.env.PORT,()=>{
+    console.log(`Server is listening on port ${process.env.PORT}`);
+})
 
-// ✅ Start server
-app.listen(process.env.PORT, () => {
-  console.log(`🚀 Server is listening on port ${process.env.PORT}`);
-});
+dbConnect()
 
-// ✅ Connect to DB
-dbConnect();
+this is the main file
