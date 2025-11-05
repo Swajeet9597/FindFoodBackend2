@@ -9,7 +9,7 @@ const cors = require("cors")
 const cookieParser = require("cookie-parser")
 
 const corsOption = {
-    origin: ["http://localhost:4200"]
+    origin: "http://localhost:4200"
     methods:"POST,GET,PATCH,DELETE,HEAD",
     credentials: true,
 }
