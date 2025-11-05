@@ -1,59 +1,68 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const messDetailsSchema = mongoose.Schema({
-    userId: {
-        type:String
+  userId: {
+    type: String,
+    required: true,
+  },
+  messName: {
+    type: String,
+    required: true,
+  },
+  address: {
+    shopNumber: {
+      type: Number,
+      required: true,
     },
-
-    messName :{
-        type:String
+    area: {
+      type: String,
+      required: true,
     },
-    address : {
-                    shopNumber:{
-                        type:Number
-                    },
-                    area:{
-                        type:String
-                    },
-                    city:{
-                        type:String
-                    },
-                    pincode:{
-                        type:Number
-                    },
-                    landmark:{
-                        type:String
-                    }
-              },
-    contact: {
-                    mobileNumber:{
-                        type:Number
-                    },
-                    email:{
-                        type:String
-                    }
-             },
-    license: {
-                    licenseNumber:{
-                        type:String
-                    },
-                    licenseImage:{
-                        type:String
-                    }
-             },
-    foodType:{
-        type:String
+    city: {
+      type: String,
+      required: true,
     },
-    messImages:[{
+    pincode: {
+      type: Number,
+      required: true,
+    },
+    landmark: {
+      type: String,
+      required: true,
+    },
+  },
+  contact: {
+    mobileNumber: {
+      type: Number,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+  },
+  license: {
+    licenseNumber: {
+      type: String,
+      required: true,
+    },
+    licenseImage: {
+      type: String,
+      required: true,
+    },
+  },
+  foodType: {
+    type: String,
+    required: true,
+  },
+  messImages: [
+    {
+      type: String,
+      required: true,
+    },
+  ],
+});
 
-        type:String
-    }
-    ]
-
-})
-
-
-
-const MessDetail = mongoose.model("MessDetail", messDetailsSchema)
+const MessDetail = mongoose.model("MessDetail", messDetailsSchema);
 
 module.exports = MessDetail;
