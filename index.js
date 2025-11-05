@@ -28,5 +28,3 @@ app.listen(process.env.PORT,()=>{
 })
 
 dbConnect()
-
-this is the main file
