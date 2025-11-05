@@ -11,9 +11,9 @@ const cookieParser = require("cookie-parser");
 // ✅ Allowed frontend origins (local + deployed)
 const allowedOrigins = [
   "http://localhost:4200",
-  "http://localhost:3000",
-  "http://localhost:5173",
-  "https://find-food-backend2.vercel.app", // your deployed frontend
+  // "http://localhost:3000",
+  // "http://localhost:5173",
+  
 ];
 
 // ✅ Dynamic CORS setup
