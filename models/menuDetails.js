@@ -1,31 +1,30 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const menuDetailsSchema = mongoose.Schema({
+  userId: {
+    type: String,
+    required: true,
+  },
+  morning: {
+    Monday: [{ type: String, required: true }],
+    Tuesday: [{ type: String, required: true }],
+    Wednesday: [{ type: String, required: true }],
+    Thursday: [{ type: String, required: true }],
+    Friday: [{ type: String, required: true }],
+    Saturday: [{ type: String, required: true }],
+    Sunday: [{ type: String, required: true }],
+  },
+  evening: {
+    Monday: [{ type: String, required: true }],
+    Tuesday: [{ type: String, required: true }],
+    Wednesday: [{ type: String, required: true }],
+    Thursday: [{ type: String, required: true }],
+    Friday: [{ type: String, required: true }],
+    Saturday: [{ type: String, required: true }],
+    Sunday: [{ type: String, required: true }],
+  },
+});
 
-    userId: {
-        type:String
-    },
-
-    morning :{
-                Monday:[{type:String}],
-                Tuesday:[{type:String}],
-                Wednesday:[{type:String}],
-                Thursday:[{type:String}],
-                Friday:[{type:String}],
-                Saturday:[{type:String}],
-                Sunday:[{type:String}],
-    },
-    evening : {
-                Monday:[{type:String}],
-                Tuesday:[{type:String}],
-                Wednesday:[{type:String}],
-                Thursday:[{type:String}],
-                Friday:[{type:String}],
-                Saturday:[{type:String}],
-                Sunday:[{type:String}],
-                }              
-})
-
-const MenuDetail = mongoose.model("MenuDetail", menuDetailsSchema)
+const MenuDetail = mongoose.model("MenuDetail", menuDetailsSchema);
 
 module.exports = MenuDetail;
