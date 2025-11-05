@@ -1,23 +1,22 @@
 const mongoose = require("mongoose")
 
 const timeDetailsSchema = mongoose.Schema({
-
     userId: {
-        type:String
+        type: String,
+        required: true
     },
-
-    morning :{
-                from:{type:String},
-                to:{type:String},
+    morning: {
+        from: { type: String, required: true },
+        to: { type: String, required: true },
     },
-    evening : {
-                from:{type:String},
-                to:{type:String},
+    evening: {
+        from: { type: String, required: true },
+        to: { type: String, required: true },
     },
-    holiday : {
-                day:{type:String},
-                period:{type:String},
-    }                 
+    holiday: {
+        day: { type: String, required: true },
+        period: { type: String, required: true },
+    }
 })
 
 const TimeDetail = mongoose.model("TimeDetail", timeDetailsSchema)
