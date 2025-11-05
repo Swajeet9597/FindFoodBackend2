@@ -13,7 +13,7 @@ const allowedOrigins = [
   "http://localhost:4200",
   "http://localhost:3000",
   "http://localhost:5173",
-  "https://find-food-frontend.vercel.app", // your deployed frontend
+  "https://find-food-backend2.vercel.app", // your deployed frontend
 ];
 
 // ✅ Dynamic CORS setup
