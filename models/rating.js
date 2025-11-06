@@ -1,23 +1,24 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 
-const ratingSchema = mongoose.Schema(
-  {
+const ratingSchema = mongoose.Schema({
     customerUserId: {
-      type: String,
+        type: String,
+        required: true
     },
     messUserId: {
-      type: String,
+        type: String,
+        required: true
     },
     rating: {
-      type: Number,
+        type: Number,
+        required: true
     },
     feedback: {
-      type: String,
+        type: String,
+        required: true
     },
-  },
-  { timestamps: true }
-);
+}, { timestamps: true })
 
-const Rating = mongoose.model("Rating", ratingSchema);
+const Rating = mongoose.model("Rating", ratingSchema)
 
 module.exports = Rating;
