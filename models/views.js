@@ -2,12 +2,10 @@ const mongoose = require("mongoose")
 
 const viewsSchema = mongoose.Schema({
     customerUserId: {
-        type: String,
-        required: true
+        type: String
     },
     messUserId: {
-        type: String,
-        required: true
+        type: String
     }
 }, { timestamps: true })
 
